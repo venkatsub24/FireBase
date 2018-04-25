@@ -19,6 +19,9 @@ export class AppComponent {
 
   usersCol: AngularFirestoreCollection<Users>;
   users: Observable<Users[]>;
+  name: string;
+  place: string;
+  profession: string;
 
   constructor(private afs: AngularFirestore) {}
 
@@ -27,5 +30,12 @@ export class AppComponent {
     this.users = this.usersCol.valueChanges();
   }
 
-  title = 'app';
+  addUser(){
+    let newUser: Users = {
+      name: this.name,
+      Place: this.place,
+      Profession: this.profession
+    }
+    this.afs.collection('users').add(newUser);
+  }
 }

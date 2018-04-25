@@ -1,3 +1,8 @@
+<input type="text" [(ngModel)]="name" name="Name" placeholder="Enter name">
+<input type="text" [(ngModel)]="place" name="Place" placeholder="Enter Place">
+<input type="text" [(ngModel)]="profession" name="Profession" placeholder="Enter Profession of User">
+<input type="submit" value="Add an User" (click)="addUser()">
+
 <ul *ngFor="let user of users | async">
   <li>
     <strong>{{ user.name}}</strong>
